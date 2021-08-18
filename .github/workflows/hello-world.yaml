@@ -70,7 +70,6 @@ jobs:
   Component-test:
     runs-on: ubuntu-latest
     needs: Docker-image
-    container: krust19/micronaut-app:latest
 
     steps:
       - name: Download a single artifact
@@ -78,6 +77,6 @@ jobs:
         with:
           name: code
           path: .
-          
+
       - name: running
         run: chmod +x ci/component-test.sh && ci/component-test.sh
