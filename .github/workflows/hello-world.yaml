@@ -8,6 +8,12 @@ jobs:
       - name: My-step
         uses: actions/checkout@v2
 
+      - name: Upload Repo
+        uses: actions/upload-artifact@v2
+        with:
+          name: code
+          path: .
+
   Build: 
     needs: Clone-down
     runs-on: ubuntu-latest
@@ -24,13 +30,4 @@ jobs:
       - name: Test
         run: bash ci/unit-test-app.sh
 
-  Upload-repo: 
-    needs: [Test, Build]
-    runs-on: ubuntu-latest
-    container: gradle:6-jdk11
-    steps:
-      - name: Upload Repo
-        uses: actions/upload-artifact@v2
-        with:
-          name: code
-          path: .
+
