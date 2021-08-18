@@ -25,7 +25,7 @@ jobs:
         run: bash ci/unit-test-app.sh
 
   Upload-repo: 
-    needs: Test, Build
+    needs: [Test, Build]
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
