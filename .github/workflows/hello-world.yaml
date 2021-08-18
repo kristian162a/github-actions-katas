@@ -13,3 +13,9 @@ jobs:
 
       - name: Test
         run: bash ci/unit-test-app.sh
+
+      - name: Upload Repo
+        uses: actions/download-artifact@v2
+        with:
+          name: code
+          path: .
